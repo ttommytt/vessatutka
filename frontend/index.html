@@ -4,30 +4,10 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<script src="js/jquery-3.2.1.js"></script>
 		<script src="js/moment.js"></script>
+		<script src="js/poll.js"></script>
 	</head>
 	<body>
 		<h1 class="header">Vessa on vapaa</h1>
-		<script>
-			function checkBathroom() {
-				$.get('/vessatutka/api/motion/')
-				.done(function(data) {
-					if(data.length && moment(data[0].timestamp).diff(moment()) < 30000) {
-						$('.header').html('Vessa on varattu');
-					}
-					else {
-						$('.header').html('Vessa on vapaa');
-					}
-				})
-				.fail(function() {
-					setTimeout(checkBathroom, 10000);
-				})
-
-			}
-
-			$( document ).ready(function() {
-    			checkBathroom();
-			});
-		</script>
 	</body>
 </html>
 
