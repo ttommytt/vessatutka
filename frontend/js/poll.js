@@ -1,7 +1,7 @@
 			function checkBathroom() {
 				$.get('/vessatutka/api/motion/')
 				.done(function(data) {
-					if(data.length && moment(data[0].timestamp).diff(moment()) < 30000) {
+					if(data.length && moment(data[0].timestamp).diff(moment()) < -30000) {
 						$('.header').removeClass('free').addClass('reserved').html('Vessa on varattu');
 					}
 					else {
