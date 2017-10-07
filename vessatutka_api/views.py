@@ -9,7 +9,7 @@ from rest_framework import permissions
 from django.conf import settings
 
 class MotionDetectorPermission(permissions.BasePermission):
-    def has_permission(self, request, view):W
+    def has_permission(self, request, view):
         if not request.META.get('HTTP_X_DETECTOR') or request.META.get('HTTP_X_DETECTOR') != settings.AUTH_KEY:
             return False
         return True
